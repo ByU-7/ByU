@@ -34,10 +34,12 @@ const wander = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/wander" }),
   schema: z.object({
     title: z.string(),
-    type: z.string(), // Places, Routes, Moments
+    description: z.string().optional(),
+    type: z.string(), // Adventure, Detour, Curiosity, Tried
     location: z.string().optional(),
     pubDate: z.coerce.date(),
     image: z.string().optional(),
+    isFeatured: z.boolean().optional(),
   }),
 });
 

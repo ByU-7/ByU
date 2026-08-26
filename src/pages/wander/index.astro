@@ -4,28 +4,81 @@ import { getCollection } from 'astro:content';
 
 const wander = await getCollection('wander');
 wander.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const featured = wander.find(p => p.data.isFeatured) || wander[0];
+const adventures = wander.filter(p => p.id !== featured.id && (p.data.type === 'Adventure' || p.data.type === 'Detour' || p.data.type === 'Tried'));
+const curiosities = wander.filter(p => p.id !== featured.id && p.data.type === 'Curiosity');
 ---
 
-<Layout title="Things I Wander | Bayu Distira">
-  <div class="py-16">
-    <div class="mb-16">
-      <h1 class="text-4xl font-serif font-bold text-brand-text mb-4">Things I Wander</h1>
-      <p class="font-sans text-brand-text/60">Places, journeys, and brief moments I find along the way.</p>
+<Layout title="Wander | Bayu Distira">
+  <div class="py-16 max-w-4xl mx-auto px-4 md:px-0">
+    <div class="mb-24 text-center border-b border-brand-text/10 pb-16">
+      <h1 class="text-4xl md:text-5xl font-serif font-bold text-brand-text mb-6 tracking-wide">WANDER</h1>
+      <p class="font-sans text-brand-text/60 text-lg max-w-xl mx-auto">A record of things I explored, tried, noticed, and stumbled upon.</p>
     </div>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-      {wander.map((item) => (
-        <article class="bg-brand-bg border border-brand-text/10 p-8 shadow-sm">
-          <div class="flex items-center gap-3 mb-6">
-            <span class="text-xs font-sans tracking-[0.2em] uppercase text-brand-accent">{item.data.type}</span>
-            {item.data.location && <span class="text-xs font-sans text-brand-text/50">&bull; {item.data.location}</span>}
+
+    {/* FEATURED */}
+    {featured && (
+      <div class="mb-32">
+        <h2 class="text-[10px] font-sans font-bold tracking-[0.25em] text-brand-text/40 uppercase mb-12 text-center">Featured</h2>
+        
+        <a href={`/wander/${featured.slug || featured.id}/`} class="group block text-center">
+          <h3 class="text-4xl font-serif font-bold text-brand-text mb-3 group-hover:text-brand-accent transition-colors">{featured.data.title}</h3>
+          <div class="text-[10px] font-sans tracking-[0.2em] uppercase text-brand-text/40 mb-12">
+            {new Date(featured.data.pubDate).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' })}
           </div>
-          <h2 class="text-2xl font-serif font-bold text-brand-text mb-4">{item.data.title}</h2>
-          <div class="font-serif italic text-brand-text/80 leading-relaxed">
-            {item.body}
+          
+          <div class="w-full aspect-[21/9] bg-[#e6e2d6] border border-brand-text/10 rounded-sm mb-12 flex items-center justify-center overflow-hidden">
+             <div class="text-brand-text/20 font-serif italic">[ PHOTO ]</div>
           </div>
-        </article>
-      ))}
+          
+          <p class="font-serif italic text-brand-text/70 text-xl max-w-lg mx-auto leading-relaxed">
+            {featured.data.description}
+          </p>
+        </a>
+      </div>
+    )}
+
+    <div class="w-full h-px bg-brand-text/10 my-24"></div>
+
+    {/* SMALL ADVENTURES */}
+    <div class="mb-24">
+      <h2 class="text-[10px] font-sans font-bold tracking-[0.25em] text-brand-text/40 uppercase mb-12 text-center">Small Adventures & Detours</h2>
+      
+      <div class="flex flex-col">
+        {adventures.map((item) => (
+          <a href={`/wander/${item.slug || item.id}/`} class="group block border-b border-brand-text/5 py-8 text-center hover:bg-brand-text/[0.02] transition-colors">
+            <h3 class="text-xl font-serif font-bold text-brand-text mb-2 group-hover:text-brand-accent transition-colors uppercase tracking-wide">{item.data.title}</h3>
+            <p class="font-sans text-brand-text/60 text-sm">
+              {item.data.description}
+            </p>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <div class="w-full h-px bg-brand-text/10 my-24"></div>
+
+    {/* CURIOSITIES */}
+    <div class="mb-32">
+      <h2 class="text-[10px] font-sans font-bold tracking-[0.25em] text-brand-text/40 uppercase mb-12 text-center">Curiosities</h2>
+      
+      <div class="flex flex-col">
+        {curiosities.map((item) => (
+          <a href={`/wander/${item.slug || item.id}/`} class="group block border-b border-brand-text/5 py-8 text-center hover:bg-brand-text/[0.02] transition-colors">
+            <h3 class="text-xl font-serif font-bold text-brand-text mb-2 group-hover:text-brand-accent transition-colors">{item.data.description || item.data.title}</h3>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <div class="w-full h-px bg-brand-text/10 my-24"></div>
+
+    {/* WANDER LOG */}
+    <div class="text-center pb-16">
+      <h2 class="text-[10px] font-sans font-bold tracking-[0.25em] text-brand-text/40 uppercase mb-6">Wander Log</h2>
+      <div class="text-5xl font-serif text-brand-text/20 mb-4">{new Date().getFullYear()}</div>
+      <p class="font-sans text-brand-text/50">Things I've explored,<br/>not necessarily places.</p>
     </div>
   </div>
 </Layout>
