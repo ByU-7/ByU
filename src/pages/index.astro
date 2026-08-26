@@ -72,7 +72,7 @@ const latestWriting = writing[0];
       </h2>
       <div class="space-y-16 flex-grow">
         {latestWriting && (
-          <a href={`/writing/${latestWriting.slug || latestWriting.id}`} class="block group border-b border-brand-text/10 pb-12">
+          <a href={`/writing/${latestWriting.id}`} class="block group border-b border-brand-text/10 pb-12">
             <h3 class="text-3xl font-serif font-bold text-brand-text group-hover:text-brand-accent transition-colors mb-3">{latestWriting.data.title}</h3>
             <p class="font-serif italic text-brand-text/70 mb-4 text-lg">{latestWriting.data.description}</p>
             <p class="text-xs font-sans uppercase tracking-widest text-brand-text/50">{latestWriting.data.category} &middot; {new Date(latestWriting.data.pubDate).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</p>
@@ -80,7 +80,7 @@ const latestWriting = writing[0];
         )}
         
         {latestWork && (
-          <a href={`/work/${latestWork.slug || latestWork.id}`} class="block group">
+          <a href={`/work/${latestWork.id}`} class="block group">
             <h3 class="text-3xl font-serif font-bold text-brand-text group-hover:text-brand-accent transition-colors mb-3">{latestWork.data.title}</h3>
             <p class="font-serif italic text-brand-text/70 mb-4 text-lg">{latestWork.data.description}</p>
             <p class="text-xs font-sans uppercase tracking-widest text-brand-text/50">Project &middot; {new Date(latestWork.data.pubDate).toLocaleDateString('en-US', { year: 'numeric' })}</p>

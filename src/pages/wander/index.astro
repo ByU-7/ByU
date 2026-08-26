@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
@@ -22,7 +22,7 @@ const curiosities = wander.filter(p => p.id !== featured.id && p.data.type === '
       <div class="mb-32">
         <h2 class="text-[10px] font-sans font-bold tracking-[0.25em] text-brand-text/40 uppercase mb-12 text-center">Featured</h2>
         
-        <a href={`/wander/${featured.slug || featured.id}/`} class="group block text-center">
+        <a href={`/wander/${featured.id}/`} class="group block text-center">
           <h3 class="text-4xl font-serif font-bold text-brand-text mb-3 group-hover:text-brand-accent transition-colors">{featured.data.title}</h3>
           <div class="text-[10px] font-sans tracking-[0.2em] uppercase text-brand-text/40 mb-12">
             {new Date(featured.data.pubDate).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' })}
@@ -47,7 +47,7 @@ const curiosities = wander.filter(p => p.id !== featured.id && p.data.type === '
       
       <div class="flex flex-col">
         {adventures.map((item) => (
-          <a href={`/wander/${item.slug || item.id}/`} class="group block border-b border-brand-text/5 py-8 text-center hover:bg-brand-text/[0.02] transition-colors">
+          <a href={`/wander/${item.id}/`} class="group block border-b border-brand-text/5 py-8 text-center hover:bg-brand-text/[0.02] transition-colors">
             <h3 class="text-xl font-serif font-bold text-brand-text mb-2 group-hover:text-brand-accent transition-colors uppercase tracking-wide">{item.data.title}</h3>
             <p class="font-sans text-brand-text/60 text-sm">
               {item.data.description}
@@ -65,7 +65,7 @@ const curiosities = wander.filter(p => p.id !== featured.id && p.data.type === '
       
       <div class="flex flex-col">
         {curiosities.map((item) => (
-          <a href={`/wander/${item.slug || item.id}/`} class="group block border-b border-brand-text/5 py-8 text-center hover:bg-brand-text/[0.02] transition-colors">
+          <a href={`/wander/${item.id}/`} class="group block border-b border-brand-text/5 py-8 text-center hover:bg-brand-text/[0.02] transition-colors">
             <h3 class="text-xl font-serif font-bold text-brand-text mb-2 group-hover:text-brand-accent transition-colors">{item.data.description || item.data.title}</h3>
           </a>
         ))}
