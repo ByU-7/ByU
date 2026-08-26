@@ -48,7 +48,7 @@ import Layout from '../layouts/Layout.astro';
       <h2 class="text-xs font-sans font-bold tracking-[0.2em] text-brand-text/40 uppercase mb-8">A Little About Me</h2>
       <div class="space-y-6 font-serif text-brand-text/80 text-lg leading-relaxed">
         <p>
-          I am an Informatics student whose curiosity often spills beyond the edges of a computer screen. While my formal education teaches me how to write efficient algorithms and structure databases, my true passion lies in understanding how things work�whether it's a piece of software, human nature, or the cosmos.
+          I am an Informatics student whose curiosity often spills beyond the edges of a computer screen. While my formal education teaches me how to write efficient algorithms and structure databases, my true passion lies in understanding how things work. whether it's a piece of software, human nature, or the cosmos.
         </p>
         <p>
           I build things because I want to see if I can. I write because it is the only way I can untangle the thoughts in my head. And I explore because the world is too vast to only be seen from one perspective.
@@ -93,20 +93,50 @@ import Layout from '../layouts/Layout.astro';
       <div class="space-y-16 max-w-3xl mx-auto">
         {/* Films */}
         <div>
-          <h3 class="font-serif italic text-brand-text/60 text-xl mb-6">Films</h3>
+          <div class="flex justify-between items-end mb-6">
+            <h3 class="font-serif italic text-brand-text/60 text-xl">Films</h3>
+            <a href="https://letterboxd.com/" target="_blank" class="text-xs font-sans tracking-wider uppercase text-brand-text/40 hover:text-[#00e054] transition-colors flex items-center gap-1">
+              Letterboxd <span class="text-lg leading-none">&rarr;</span>
+            </a>
+          </div>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {['Interstellar', 'The Secret Life of Walter Mitty', 'Dead Poets Society', 'Oppenheimer'].map(film => (
-              <div class="aspect-[2/3] bg-[#e6e2d6] border border-brand-text/10 flex items-center justify-center text-center p-4 rounded-sm hover:shadow-md transition-shadow">
-                <span class="font-sans font-bold text-brand-text/50 text-sm">{film}</span>
+            {[
+              { title: 'Interstellar', bg: 'bg-stone-800', text: 'text-stone-300' },
+              { title: 'The Secret Life of Walter Mitty', bg: 'bg-sky-900', text: 'text-sky-200' },
+              { title: 'Dead Poets Society', bg: 'bg-emerald-900', text: 'text-emerald-200' },
+              { title: 'Oppenheimer', bg: 'bg-orange-950', text: 'text-orange-200' }
+            ].map(film => (
+              <div class={`aspect-[2/3] ${film.bg} border border-brand-text/10 flex items-center justify-center text-center p-4 rounded-sm hover:ring-2 hover:ring-[#00e054]/60 transition-all cursor-pointer shadow-sm`}>
+                <span class={`font-serif italic ${film.text} text-sm`}>{film.title}</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Music */}
-        <div>
-          <h3 class="font-serif italic text-brand-text/60 text-xl mb-4">Music</h3>
-          <p class="font-sans text-brand-text/80 text-lg">Linkin Park &middot; My Chemical Romance &middot; Simple Plan &middot; Hindia</p>
+        <div class="pt-8">
+          <div class="flex justify-between items-end mb-6">
+            <h3 class="font-serif italic text-brand-text/60 text-xl">Music</h3>
+            <a href="https://open.spotify.com/" target="_blank" class="text-xs font-sans tracking-wider uppercase text-brand-text/40 hover:text-[#1DB954] transition-colors flex items-center gap-1">
+              Spotify <span class="text-lg leading-none">&rarr;</span>
+            </a>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { name: 'Linkin Park', type: 'Artist' },
+              { name: 'My Chemical Romance', type: 'Artist' },
+              { name: 'Simple Plan', type: 'Artist' },
+              { name: 'Hindia', type: 'Artist' }
+            ].map(artist => (
+              <div class="bg-brand-text/[0.03] p-4 rounded-lg hover:bg-brand-text/[0.06] transition-colors cursor-pointer group">
+                <div class="w-full aspect-square bg-[#e6e2d6] rounded-full mb-4 shadow-inner flex items-center justify-center group-hover:shadow-md transition-shadow">
+                   <div class="text-brand-text/20 font-serif text-4xl">&spadesuit;</div>
+                </div>
+                <h4 class="font-sans font-bold text-brand-text text-sm truncate">{artist.name}</h4>
+                <p class="font-sans text-brand-text/50 text-xs mt-1">{artist.type}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Books */}
