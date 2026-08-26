@@ -3,42 +3,199 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="About | Bayu Distira">
-  <div class="py-16 md:py-24 max-w-2xl mx-auto">
-    <h1 class="text-4xl font-serif font-bold text-brand-text mb-12">About</h1>
+  <div class="py-16 max-w-4xl mx-auto px-4 md:px-0">
     
-    <div class="font-sans text-brand-text/80 text-lg leading-relaxed mb-16 space-y-2">
-      <p>Based in Indonesia</p>
-      <p>Studying Informatics</p>
-      <p>Interested in technology, sport, music, literature, and the universe</p>
+    {/* 1. PROFESSIONAL IDENTITY */}
+    <div class="mb-24 flex flex-col items-center md:items-start text-center md:text-left">
+      <h1 class="text-4xl md:text-6xl font-serif font-bold text-brand-text mb-2">Bayu Distira</h1>
+      <h2 class="text-xl md:text-2xl font-sans text-brand-text/60 mb-6">ByU</h2>
+      
+      <p class="text-xs font-sans font-bold tracking-[0.2em] text-brand-text/50 uppercase mb-6">
+        Informatics Student &middot; Builder &middot; Writer
+      </p>
+      
+      <p class="font-sans text-brand-text/70 text-lg max-w-2xl mb-8 leading-relaxed">
+        Based in Indonesia. Interested in technology, software, science, literature, sports, and the universe.
+      </p>
+      
+      <div class="flex flex-wrap justify-center md:justify-start gap-4">
+        <a href="#" class="px-6 py-3 bg-brand-text text-brand-bg font-sans text-xs uppercase tracking-wider font-bold rounded-sm hover:bg-brand-accent transition-colors">
+          Download CV &darr;
+        </a>
+        <a href="https://github.com/ByU-7" target="_blank" class="px-6 py-3 border border-brand-text/20 text-brand-text font-sans text-xs uppercase tracking-wider font-bold rounded-sm hover:border-brand-text transition-colors">
+          GitHub
+        </a>
+        <a href="#" class="px-6 py-3 border border-brand-text/20 text-brand-text font-sans text-xs uppercase tracking-wider font-bold rounded-sm hover:border-brand-text transition-colors">
+          LinkedIn
+        </a>
+        <a href="mailto:hello@example.com" class="px-6 py-3 border border-brand-text/20 text-brand-text font-sans text-xs uppercase tracking-wider font-bold rounded-sm hover:border-brand-text transition-colors">
+          Email
+        </a>
+      </div>
     </div>
 
-    <div class="font-serif italic text-2xl text-brand-accent leading-relaxed mb-20 border-l-2 border-brand-accent/30 pl-6">
-      "I like understanding things by taking them apart, whether it is a piece of software, a question about the universe, or an idea I have been carrying for too long."
+    {/* QUOTE */}
+    <div class="my-32 text-center">
+      <p class="text-2xl md:text-4xl font-serif italic text-brand-text/80 leading-relaxed max-w-3xl mx-auto">
+        "I like understanding things by taking things apart..."
+      </p>
     </div>
 
-    <h2 class="text-xl font-sans font-bold text-brand-text mb-8 border-b border-brand-text/10 pb-4">Currently</h2>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 font-sans text-brand-text/80">
-      <div>
-        <h3 class="text-xs font-bold tracking-[0.2em] text-brand-text/50 uppercase mb-2">Learning</h3>
-        <p>Astro framework architecture.</p>
-      </div>
-      <div>
-        <h3 class="text-xs font-bold tracking-[0.2em] text-brand-text/50 uppercase mb-2">Building</h3>
-        <p>My digital garden.</p>
-      </div>
-      <div>
-        <h3 class="text-xs font-bold tracking-[0.2em] text-brand-text/50 uppercase mb-2">Reading</h3>
-        <p>Norwegian Wood by Haruki Murakami.</p>
-      </div>
-      <div>
-        <h3 class="text-xs font-bold tracking-[0.2em] text-brand-text/50 uppercase mb-2">Listening</h3>
-        <p>Linkin Park - Something I keep returning to.</p>
-      </div>
-      <div class="md:col-span-2">
-        <h3 class="text-xs font-bold tracking-[0.2em] text-brand-text/50 uppercase mb-2">Wondering about</h3>
-        <p>If we are a way for the universe to know itself, what does it think of us?</p>
+    <div class="w-full h-px bg-brand-text/10 my-24"></div>
+
+    {/* 2. A LITTLE ABOUT ME */}
+    <div class="mb-32 max-w-2xl mx-auto text-center md:text-left">
+      <h2 class="text-xs font-sans font-bold tracking-[0.2em] text-brand-text/40 uppercase mb-8">A Little About Me</h2>
+      <div class="space-y-6 font-serif text-brand-text/80 text-lg leading-relaxed">
+        <p>
+          I am an Informatics student whose curiosity often spills beyond the edges of a computer screen. While my formal education teaches me how to write efficient algorithms and structure databases, my true passion lies in understanding how things work—whether it's a piece of software, human nature, or the cosmos.
+        </p>
+        <p>
+          I build things because I want to see if I can. I write because it is the only way I can untangle the thoughts in my head. And I explore because the world is too vast to only be seen from one perspective.
+        </p>
+        <p>
+          I believe that the best software is built by people who read books, watch films, and take walks. Technology is just a tool; the stories we tell and the problems we solve with it are what actually matter.
+        </p>
       </div>
     </div>
+
+    <div class="w-full h-px bg-brand-text/10 my-24"></div>
+
+    {/* 3. WHAT I DO */}
+    <div class="mb-32">
+      <h2 class="text-xs font-sans font-bold tracking-[0.2em] text-brand-text/40 uppercase mb-16 text-center">What I Do</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+        <a href="/work" class="group block p-8 border border-brand-text/5 hover:border-brand-text/20 transition-colors bg-brand-bg rounded-lg">
+          <h3 class="font-serif font-bold text-2xl text-brand-text mb-4 group-hover:text-brand-accent transition-colors">BUILD</h3>
+          <p class="font-sans text-brand-text/60 mb-6">Websites, applications, and experiments.</p>
+          <span class="text-xs font-sans tracking-[0.2em] text-brand-text/40 uppercase">See Projects &rarr;</span>
+        </a>
+        <a href="/writing" class="group block p-8 border border-brand-text/5 hover:border-brand-text/20 transition-colors bg-brand-bg rounded-lg">
+          <h3 class="font-serif font-bold text-2xl text-brand-text mb-4 group-hover:text-brand-accent transition-colors">WRITE</h3>
+          <p class="font-sans text-brand-text/60 mb-6">Essays and reflections about things I find worth thinking about.</p>
+          <span class="text-xs font-sans tracking-[0.2em] text-brand-text/40 uppercase">Read Essays &rarr;</span>
+        </a>
+        <a href="/wander" class="group block p-8 border border-brand-text/5 hover:border-brand-text/20 transition-colors bg-brand-bg rounded-lg">
+          <h3 class="font-serif font-bold text-2xl text-brand-text mb-4 group-hover:text-brand-accent transition-colors">EXPLORE</h3>
+          <p class="font-sans text-brand-text/60 mb-6">Ideas, places, activities, and experiences outside my routine.</p>
+          <span class="text-xs font-sans tracking-[0.2em] text-brand-text/40 uppercase">View Log &rarr;</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="w-full h-px bg-brand-text/10 my-24"></div>
+
+    {/* 4. THINGS I LIKE */}
+    <div class="mb-32">
+      <h2 class="text-xs font-sans font-bold tracking-[0.2em] text-brand-text/40 uppercase mb-16 text-center">Things I Like</h2>
+      
+      <div class="space-y-16 max-w-3xl mx-auto">
+        {/* Films */}
+        <div>
+          <h3 class="font-serif italic text-brand-text/60 text-xl mb-6">Films</h3>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {['Interstellar', 'The Secret Life of Walter Mitty', 'Dead Poets Society', 'Oppenheimer'].map(film => (
+              <div class="aspect-[2/3] bg-[#e6e2d6] border border-brand-text/10 flex items-center justify-center text-center p-4 rounded-sm hover:shadow-md transition-shadow">
+                <span class="font-sans font-bold text-brand-text/50 text-sm">{film}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Music */}
+        <div>
+          <h3 class="font-serif italic text-brand-text/60 text-xl mb-4">Music</h3>
+          <p class="font-sans text-brand-text/80 text-lg">Linkin Park &middot; My Chemical Romance &middot; Simple Plan &middot; Hindia</p>
+        </div>
+
+        {/* Books */}
+        <div>
+          <h3 class="font-serif italic text-brand-text/60 text-xl mb-4">Books</h3>
+          <p class="font-sans text-brand-text/80 text-lg">Norwegian Wood &middot; Cosmos &middot; Pale Blue Dot</p>
+        </div>
+
+        {/* Sport */}
+        <div>
+          <h3 class="font-serif italic text-brand-text/60 text-xl mb-4">Sport</h3>
+          <p class="font-sans text-brand-text/80 text-lg">Badminton &middot; Futsal</p>
+        </div>
+
+        {/* Thoughts */}
+        <div>
+          <h3 class="font-serif italic text-brand-text/60 text-xl mb-4">Things I Could Spend Hours Thinking About</h3>
+          <p class="font-sans text-brand-text/80 text-lg leading-relaxed">
+            The universe <br/>
+            Human nature <br/>
+            Why people do what they do <br/>
+            How things work
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full h-px bg-brand-text/10 my-24"></div>
+
+    {/* 5. CURRENTLY */}
+    <div class="mb-32 max-w-3xl mx-auto">
+      <h2 class="text-xs font-sans font-bold tracking-[0.2em] text-brand-text/40 uppercase mb-12 text-center">Currently</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-16">
+        <div>
+          <h3 class="font-serif italic text-brand-text/50 mb-2">Learning</h3>
+          <p class="font-sans text-brand-text/80 font-bold text-lg">Astro &amp; Modern Web Development</p>
+        </div>
+        <div>
+          <h3 class="font-serif italic text-brand-text/50 mb-2">Building</h3>
+          <p class="font-sans text-brand-text/80 font-bold text-lg">This digital garden</p>
+        </div>
+        <div>
+          <h3 class="font-serif italic text-brand-text/50 mb-2">Reading</h3>
+          <p class="font-sans text-brand-text/80 font-bold text-lg">Norwegian Wood</p>
+        </div>
+        <div>
+          <h3 class="font-serif italic text-brand-text/50 mb-2">Listening</h3>
+          <p class="font-sans text-brand-text/80 font-bold text-lg">Linkin Park</p>
+        </div>
+        <div class="md:col-span-2">
+          <h3 class="font-serif italic text-brand-text/50 mb-2">Wondering About</h3>
+          <p class="font-sans text-brand-text/80 font-bold text-xl leading-relaxed">
+            If we are a way for the universe to know itself, what does it think of us?
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full h-px bg-brand-text/10 my-24"></div>
+
+    {/* 6. MILESTONES */}
+    <div class="mb-32 max-w-2xl mx-auto">
+      <h2 class="text-xs font-sans font-bold tracking-[0.2em] text-brand-text/40 uppercase mb-12 text-center">A Few Milestones</h2>
+      
+      <div class="space-y-6 font-sans text-brand-text/80">
+        <div class="flex flex-col md:flex-row md:gap-8">
+          <div class="font-bold w-16 shrink-0 mb-1 md:mb-0">2026</div>
+          <div>Built this personal digital archive.</div>
+        </div>
+        <div class="flex flex-col md:flex-row md:gap-8">
+          <div class="font-bold w-16 shrink-0 mb-1 md:mb-0">2025</div>
+          <div>Began studying Informatics, learning how to take software apart.</div>
+        </div>
+        <div class="flex flex-col md:flex-row md:gap-8">
+          <div class="font-bold w-16 shrink-0 mb-1 md:mb-0">2023</div>
+          <div>Started exploring UI/UX design.</div>
+        </div>
+      </div>
+    </div>
+
+    {/* OUTRO */}
+    <div class="mt-40 mb-20 text-center">
+      <p class="font-serif text-2xl md:text-3xl text-brand-text/40 leading-relaxed italic">
+        I don't have everything figured out.<br/>
+        Still wondering.<br/>
+        Still wandering.
+      </p>
+    </div>
+
   </div>
 </Layout>
