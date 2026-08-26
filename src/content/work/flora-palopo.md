@@ -1,18 +1,15 @@
 ﻿---
 title: "FloraPalopo"
-description: "A specialized e-commerce platform for ornamental plants. Featuring a premium glassmorphism UI and a calming green aesthetic."
+description: "A college web programming assignment that I decided to push further by implementing a premium glassmorphism UI."
 pubDate: "2026-06-22"
 ---
 
-### The Idea
-Banyak toko tanaman lokal yang tidak memiliki etalase digital yang merepresentasikan keindahan produk mereka. **FloraPalopo** hadir sebagai solusi *e-commerce* khusus tanaman hias yang mengutamakan visual dan pengalaman berbelanja yang menenangkan.
+### The Background
+Rata-rata proyek awal saya lahir dari tugas kuliah, begitu pula dengan **FloraPalopo**. Ini adalah tugas mata kuliah pemrograman web yang meminta kami membuat website *e-commerce*. 
+
+Alih-alih sekadar mengumpulkan website toko *online* standar dengan *template* biasa agar cepat selesai, saya memutuskan untuk menjadikannya taman bermain (eksperimen) desain.
 
 ### The Process
-Fokus utama proyek ini adalah **UI/UX Design**. Saya mengeksplorasi penggunaan *Glassmorphism* (efek kaca buram transparan) yang dipadukan dengan gradasi hijau halus untuk memberikan kesan segar, organik, dan premium. 
+Saya mengambil tema toko tanaman hias dan menerapkan gaya desain *Glassmorphism* (efek kaca transparan) yang dipadukan dengan palet warna hijau yang menenangkan. 
 
-Selain antarmuka publik untuk berbelanja, sistem ini juga dilengkapi dengan fungsionalitas registrasi dan login yang dihubungkan dengan API *backend* sederhana. Desain *dark mode* (mode gelap) juga disertakan secara natif untuk kenyamanan berbelanja di malam hari.
-
-### Tech Stack
-- **Frontend:** Vanilla HTML, CSS, JavaScript (Boxicons & Google Fonts).
-- **Backend:** Node.js, Express.js (RESTful API `/api/login`, `/api/register`).
-- **Design Pattern:** Glassmorphism UI, Responsive CSS Variables.
+Selain membangun antarmuka (*frontend*) yang detail, saya juga mengembangkan *backend* Node.js sederhana untuk menangani sistem *login* dan registrasi penggunanya, lengkap dengan dukungan mode gelap (*dark mode*). Proyek ini membuktikan bahwa tugas kampus pun bisa menjadi mahakarya kecil jika kita mau repot sedikit.

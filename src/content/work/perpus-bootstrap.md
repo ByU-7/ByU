@@ -1,22 +1,13 @@
 ﻿---
 title: "Perpus-Bootstrap"
-description: "A complete digital library management system. Features automated fine calculations, interactive 3D book cover transitions, and member tracking."
+description: "A functional library management system born from a college assignment, used as a sandbox to test 3D CSS animations."
 pubDate: "2026-06-24"
 ---
 
-### The Idea
-Mengelola perpustakaan bukan hanya tentang mencatat buku masuk dan keluar, tetapi juga melacak ketersediaan, mengkalkulasi denda, dan membuat pengalaman meminjam buku lebih interaktif bagi anggota. **Perpus-Bootstrap** adalah purwarupa sistem manajemen perpustakaan yang fungsional sekaligus atraktif.
+### The Background
+Sama seperti FloraPalopo, **Perpus-Bootstrap** berawal dari tugas kuliah. Tugasnya adalah membangun sistem informasi perpustakaan menggunakan PHP dan basis data MySQL.
 
-### The Process
-Proyek ini sangat berfokus pada logika *backend* dan manipulasi *frontend*.
-Pada sisi pengunjung (publik), saya mengimplementasikan animasi **3D Book Cover Transition** yang memberikan ilusi seolah pengunjung memegang fisik buku saat melihat detailnya.
+### The Playground
+Karena logika utamanya (peminjaman, pengembalian, perhitungan denda) sudah biasa, saya menjadikan proyek ini sebagai medium eksperimen visual. Saya mengintegrasikan efek animasi *3D Book Cover* di halaman katalog publiknya. Saat pengunjung mengarahkan kursor, sampul buku akan berputar dalam ruang 3D seolah-olah mereka sedang memegang buku fisik.
 
-Pada sisi admin, sistem ini dilengkapi dengan:
-- **Denda Otomatis:** Perhitungan biaya keterlambatan dan kerusakan buku (berdasarkan tingkat kerusakannya).
-- **Manajemen Inventaris:** Laporan ketersediaan buku yang dibedakan antara stok hilang dan stok rusak.
-- **Statistik:** Dasbor lengkap untuk memantau sirkulasi peminjaman.
-
-### Tech Stack
-- **Frontend:** Bootstrap 5, Custom CSS/JS Animations, Vanilla JS (Theme Switcher & 3D Transitions).
-- **Backend:** PHP (Native/XAMPP environment).
-- **Database:** MySQL (Member, Book, and Borrowing tracking).
+Di balik visual tersebut, sistem *backend*-nya tetap berjalan penuh—melacak ketersediaan stok buku yang hilang atau rusak, serta mengotomatisasi perhitungan denda keterlambatan.

@@ -1,21 +1,16 @@
----
+﻿---
 title: "seHATIn"
-description: "A wellness web application featuring a questionnaire-based assessment system. Built to help users reflect on their mental well-being through guided questions."
+description: "Started as a college UI/UX design assignment, pushed into a functional web application to bridge the gap between design and development."
 pubDate: "2026-06-10"
 isFeatured: true
 ---
 
 ### The Idea
-Seringkali, langkah pertama untuk menjaga kesejahteraan mental adalah dengan menyadarinya. **seHATIn** adalah aplikasi berbasis web yang dirancang untuk menjadi ruang aman bagi pengguna melakukan penilaian diri (self-assessment) terkait kondisi emosional dan psikologis mereka melalui kuesioner interaktif.
+Sejujurnya, **seHATIn** bermula dari tugas mata kuliah desain antarmuka (UI/UX). Proyek ini awalnya hanya ditujukan untuk menjadi *mockup* statis aplikasi penilaian kesejahteraan mental.
+
+Namun, saya merasa sayang jika desain yang sudah dibuat dengan matang ini hanya berakhir sebagai pajangan Figma. Saya ingin tahu rasanya menghidupkan desain tersebut ke dalam bentuk kode nyata.
 
 ### The Process
-Saya membangun sistem ini dengan dua sisi yang saling melengkapi:
-- **Public-facing App:** Antarmuka modern yang nyaman dan ramah bagi pengguna, menggunakan elemen desain modern seperti *floating forms*, lencana (*badges*), dan tipografi yang tenang.
-- **Admin Dashboard:** Sebuah panel kontrol modular di belakang layar untuk mengelola Bank Pertanyaan, Kategori, dan Subkategori secara dinamis.
+Saya menantang diri sendiri untuk menerjemahkan desain UI tersebut menjadi aplikasi web fungsional menggunakan PHP (PDO) dan MySQL. Saya membangun dua sisi: antarmuka publik untuk kuesioner dan *dashboard* admin untuk manajemen pertanyaan.
 
-Tantangan utamanya adalah bagaimana merancang struktur kuesioner yang mendukung pertanyaan "positif" dan "negatif" (scoring terbalik) namun tetap berjalan mulus dalam satu alur *quiz* yang intuitif.
-
-### Tech Stack
-- **Frontend:** HTML5, Custom CSS Variables & Components, Phosphor Icons.
-- **Backend:** PHP (Native), PDO (PHP Data Objects).
-- **Database:** MySQL (Categories, Subcategories, Questions logic).
+Walaupun aplikasinya secara teknis belum 100% selesai, keputusan untuk "memaksakan diri" memprogram tugas desain ini mengajarkan saya pelajaran yang sangat berharga: betapa berbedanya merancang layar ideal di kanvas desain dibandingkan dengan membangun alur data nyata yang digunakan oleh sistem.
