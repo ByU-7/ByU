@@ -1,0 +1,31 @@
+﻿---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const wander = await getCollection('wander');
+wander.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<Layout title="Things I Wander | Bayu Distira">
+  <div class="py-16">
+    <div class="mb-16">
+      <h1 class="text-4xl font-serif font-bold text-brand-text mb-4">Things I Wander</h1>
+      <p class="font-sans text-brand-text/60">Places, journeys, and brief moments I find along the way.</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      {wander.map((item) => (
+        <article class="bg-brand-bg border border-brand-text/10 p-8 shadow-sm">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-xs font-sans tracking-[0.2em] uppercase text-brand-accent">{item.data.type}</span>
+            {item.data.location && <span class="text-xs font-sans text-brand-text/50">&bull; {item.data.location}</span>}
+          </div>
+          <h2 class="text-2xl font-serif font-bold text-brand-text mb-4">{item.data.title}</h2>
+          <div class="font-serif italic text-brand-text/80 leading-relaxed">
+            {item.body}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</Layout>

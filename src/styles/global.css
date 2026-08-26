@@ -1,0 +1,11 @@
+﻿@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-brand-bg: #EDE9DF;
+  --color-brand-text: #161616;
+  --color-brand-accent: #8A7355;
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Lora", serif;
+  --font-display: "Playfair Display", serif;
+}

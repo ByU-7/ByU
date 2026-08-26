@@ -1,0 +1,28 @@
+﻿---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const work = await getCollection('work');
+  return work.map((post) => ({
+    params: { slug: post.slug || post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout title={`${post.data.title} | Bayu Distira`}>
+  <article class="py-16 max-w-2xl mx-auto">
+    <div class="mb-16 pb-8 border-b border-brand-text/10">
+      <h1 class="text-3xl md:text-4xl font-serif font-bold text-brand-text leading-tight mb-6">{post.data.title}</h1>
+      <p class="font-sans text-brand-text/60">{post.data.description}</p>
+    </div>
+    
+    <div class="prose prose-stone prose-headings:font-serif prose-headings:text-brand-text prose-p:font-sans prose-p:text-brand-text/80 prose-strong:text-brand-text w-full max-w-none">
+      <Content />
+    </div>
+  </article>
+</Layout>
