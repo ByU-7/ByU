@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
@@ -78,6 +78,12 @@ const allPosts = writing.filter(p => p.id !== featuredPost?.id);
           </a>
         ))}
       </div>
+
+      {/* Empty State */}
+      <div id="empty-state" class="hidden text-center py-24">
+        <p class="font-serif italic text-brand-text/50 text-xl mb-2">No pieces published here yet.</p>
+        <p class="font-sans text-brand-text/40 text-sm">Still exploring these thoughts.</p>
+      </div>
     </div>
   </div>
 </Layout>
@@ -87,6 +93,7 @@ const allPosts = writing.filter(p => p.id !== featuredPost?.id);
     const buttons = document.querySelectorAll('.filter-btn');
     const posts = document.querySelectorAll('.post-item');
     const featuredSection = document.getElementById('featured-section');
+    const emptyState = document.getElementById('empty-state');
 
     buttons.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -101,14 +108,20 @@ const allPosts = writing.filter(p => p.id !== featuredPost?.id);
           featuredSection.style.display = (filter === 'All') ? 'block' : 'none';
         }
 
+        let visibleCount = 0;
         posts.forEach(post => {
           const type = post.getAttribute('data-type');
           if (filter === 'All' || (type && type.toLowerCase() === filter.toLowerCase())) {
             post.style.display = '';
+            visibleCount++;
           } else {
             post.style.display = 'none';
           }
         });
+
+        if (emptyState) {
+          emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
       });
     });
   });
