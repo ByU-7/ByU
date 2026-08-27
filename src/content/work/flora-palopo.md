@@ -2,6 +2,7 @@
 title: "FloraPalopo"
 description: "A college web programming assignment that I decided to push further by implementing a premium glassmorphism UI."
 pubDate: "2026-06-22"
+repoUrl: 'https://github.com/ByU-7/FloraPalopo'
 ---
 
 ### The Background
@@ -13,3 +14,4 @@ Alih-alih sekadar mengumpulkan website toko *online* standar dengan *template* b
 Saya mengambil tema toko tanaman hias dan menerapkan gaya desain *Glassmorphism* (efek kaca transparan) yang dipadukan dengan palet warna hijau yang menenangkan. 
 
 Selain membangun antarmuka (*frontend*) yang detail, saya juga mengembangkan *backend* Node.js sederhana untuk menangani sistem *login* dan registrasi penggunanya, lengkap dengan dukungan mode gelap (*dark mode*). Proyek ini membuktikan bahwa tugas kampus pun bisa menjadi mahakarya kecil jika kita mau repot sedikit.
+

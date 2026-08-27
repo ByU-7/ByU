@@ -15,10 +15,25 @@ const { Content } = await render(post);
 ---
 
 <Layout title={`${post.data.title} | Bayu Distira`}>
-  <article class="py-16 max-w-2xl mx-auto">
+  <article class="py-16 max-w-2xl mx-auto px-4 md:px-0">
     <div class="mb-16 pb-8 border-b border-brand-text/10">
-      <h1 class="text-3xl md:text-4xl font-serif font-bold text-brand-text leading-tight mb-6">{post.data.title}</h1>
-      <p class="font-sans text-brand-text/60">{post.data.description}</p>
+      <h1 class="text-3xl md:text-5xl font-serif font-bold text-brand-text leading-tight mb-6">{post.data.title}</h1>
+      <p class="font-sans text-brand-text/60 text-lg mb-8">{post.data.description}</p>
+      
+      {(post.data.liveUrl || post.data.repoUrl) && (
+        <div class="flex flex-wrap gap-4 mt-8">
+          {post.data.liveUrl && (
+            <a href={post.data.liveUrl} target="_blank" class="px-6 py-3 bg-brand-text text-brand-bg font-sans text-xs uppercase tracking-wider font-bold rounded-sm hover:bg-brand-accent transition-colors flex items-center gap-2">
+              Visit Live Site &nearr;
+            </a>
+          )}
+          {post.data.repoUrl && (
+            <a href={post.data.repoUrl} target="_blank" class="px-6 py-3 border border-brand-text/20 text-brand-text font-sans text-xs uppercase tracking-wider font-bold rounded-sm hover:border-brand-text transition-colors flex items-center gap-2">
+              View Source Code &nearr;
+            </a>
+          )}
+        </div>
+      )}
     </div>
     
     <div class="prose prose-stone prose-headings:font-serif prose-headings:text-brand-text prose-p:font-sans prose-p:text-brand-text/80 prose-strong:text-brand-text w-full max-w-none">

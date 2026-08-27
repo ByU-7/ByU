@@ -2,6 +2,7 @@
 title: "DisHub Custom UI"
 description: "An unprompted UI/UX experiment to reimagine and modernize public government service interfaces."
 pubDate: "2026-05-15"
+repoUrl: 'https://github.com/ByU-7/DisHub-Custom-UI'
 ---
 
 ### The Idea
@@ -11,3 +12,4 @@ Proyek ini adalah eksperimen murni dari rasa penasaran. Saya mencoba merancang u
 
 ### The Focus
 Eksperimen ini berfokus pada penyederhanaan langkah pengguna (*user flow*) dan modernisasi elemen visual, membuktikan bahwa layanan publik juga berhak mendapatkan standar desain *software* kelas dunia.
+

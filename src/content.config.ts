@@ -9,6 +9,8 @@ const work = defineCollection({
     pubDate: z.coerce.date(),
     heroImage: z.string().optional(),
     isFeatured: z.boolean().optional(),
+    liveUrl: z.string().url().optional(),
+    repoUrl: z.string().url().optional(),
   }),
 });
 
