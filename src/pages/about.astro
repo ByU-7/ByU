@@ -101,13 +101,13 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { title: 'Interstellar', bg: 'bg-stone-800', text: 'text-stone-300' },
-              { title: 'The Secret Life of Walter Mitty', bg: 'bg-sky-900', text: 'text-sky-200' },
-              { title: 'Dead Poets Society', bg: 'bg-emerald-900', text: 'text-emerald-200' },
-              { title: 'Oppenheimer', bg: 'bg-orange-950', text: 'text-orange-200' }
+              { title: '12 Angry Men', img: 'https://m.media-amazon.com/images/M/MV5BYjE4NzdmOTYtYjc5Yi00YzBiLWEzNDEtNTgxZGQ2MWVkN2NiXkEyXkFqcGc@._V1_.jpg' },
+              { title: 'Hacksaw Ridge', img: 'https://m.media-amazon.com/images/M/MV5BMjQ1NjM3MTUxNV5BMl5BanBnXkFtZTgwMDc5MTY5OTE@._V1_.jpg' },
+              { title: 'Sheep Detective', img: 'https://m.media-amazon.com/images/M/MV5BNTFmZWI4YmMtNmQ0ZC00ZGQwLTk1OWEtZjAyZmIzOGY0MGFiXkEyXkFqcGc@._V1_.jpg' },
+              { title: 'Grave of the Fireflies', img: 'https://m.media-amazon.com/images/M/MV5BNTY5MmE2OGMtN2IxNC00MDY4LTkwMGEtZDUzOTYyNWE0ZTNjXkEyXkFqcGc@._V1_.jpg' }
             ].map(film => (
-              <div class={`aspect-[2/3] ${film.bg} border border-brand-text/10 flex items-center justify-center text-center p-4 rounded-sm hover:ring-2 hover:ring-[#00e054]/60 transition-all cursor-pointer shadow-sm`}>
-                <span class={`font-serif italic ${film.text} text-sm`}>{film.title}</span>
+              <div class="aspect-[2/3] bg-brand-text/5 border border-brand-text/10 flex items-center justify-center text-center rounded-sm hover:ring-2 hover:ring-[#00e054]/60 transition-all cursor-pointer shadow-sm relative overflow-hidden group">
+                <img src={film.img} alt={film.title} class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-500" loading="lazy" />
               </div>
             ))}
           </div>
@@ -123,14 +123,14 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { name: 'Linkin Park', type: 'Artist' },
-              { name: 'My Chemical Romance', type: 'Artist' },
-              { name: 'Simple Plan', type: 'Artist' },
-              { name: 'Hindia', type: 'Artist' }
+              { name: 'Reality Club', type: 'Artist', img: 'https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/58/7f/69/587f69ed-0c73-4138-0b3a-7e595799b80b/23UMGIM09976.rgb.jpg/600x600bb.jpg' },
+              { name: 'For Revenge', type: 'Artist', img: 'https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/8c/9b/0e/8c9b0e99-748c-8c30-5f24-7f6cce483a39/38ce80c2-ea8d-44ed-b5b8-c5a20bbd57b7.jpg/600x600bb.jpg' },
+              { name: 'Taylor Swift', type: 'Artist', img: 'https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/be/e1/48/bee148d6-d16c-d8f7-0173-d6cf6d684aa1/08PNDIM00678.rgb.jpg/600x600bb.jpg' },
+              { name: 'Linkin Park', type: 'Artist', img: 'https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/13/44/05/134405bd-9e27-a678-8953-b5f724201f95/093624948988.jpg/600x600bb.jpg' }
             ].map(artist => (
               <div class="bg-brand-text/[0.03] p-4 rounded-lg hover:bg-brand-text/[0.06] transition-colors cursor-pointer group">
-                <div class="w-full aspect-square bg-[#e6e2d6] rounded-full mb-4 shadow-inner flex items-center justify-center group-hover:shadow-md transition-shadow">
-                   <div class="text-brand-text/20 font-serif text-4xl">&spadesuit;</div>
+                <div class="w-full aspect-square bg-brand-text/10 rounded-full mb-4 shadow-inner flex items-center justify-center group-hover:shadow-md transition-shadow relative overflow-hidden">
+                   <img src={artist.img} alt={artist.name} class="w-full h-full object-cover" loading="lazy" />
                 </div>
                 <h4 class="font-sans font-bold text-brand-text text-sm truncate">{artist.name}</h4>
                 <p class="font-sans text-brand-text/50 text-xs mt-1">{artist.type}</p>
