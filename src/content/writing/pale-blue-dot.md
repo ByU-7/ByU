@@ -1,7 +1,9 @@
 ﻿---
 title: "The Pale Blue Dot"
 description: "On being insignificant in a universe that somehow allows us to wonder."
-pubDate: "2026-08-26"
-category: "SCIENCE"
+pubDate: "2026-08-24"
+type: "Essay"
+tags: ["Science", "Cosmos"]
+isFeatured: true
 ---
-Ketika Carl Sagan meminta Voyager 1 memutar kameranya...
+Look again at that dot. That's here. That's home. That's us. On it everyone you love, everyone you know, everyone you ever heard of, every human being who ever was, lived out their lives.

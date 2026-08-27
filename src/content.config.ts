@@ -18,7 +18,9 @@ const writing = defineCollection({
     title: z.string(),
     description: z.string(),
     pubDate: z.coerce.date(),
-    category: z.string().default('ESSAYS'), // ESSAYS, REFLECTIONS, SCIENCE, OBSERVATIONS
+    type: z.string().default('Essay'), // Essay, Opinion, Reflection, Idea
+    tags: z.array(z.string()).optional(),
+    isFeatured: z.boolean().optional(),
   }),
 });
 
