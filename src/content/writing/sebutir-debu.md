@@ -1,7 +1,7 @@
-﻿---
+---
 title: "Sebutir Debu yang Hidup Sepersekian Detik dalam Skala Kosmik"
 description: "Tentang Pale Blue Dot, Carl Sagan, dan pelajaran kerendahan hati yang dikirimkan Voyager 1 dari enam miliar kilometer jauhnya."
-pubDate: "2026-08-28"
+pubDate: "2026-08-25"
 type: "Essay"
 tags: ["Cosmos", "Philosophy", "Society"]
 ---

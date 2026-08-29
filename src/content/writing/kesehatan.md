@@ -1,7 +1,7 @@
 ---
 title: '"Memangnya Siapa Yang Sakit?" Mengubah Cara Pandang Kita Terhadap Cek Kesehatan'
 description: 'Coba bayangkan kita mengajak seorang teman, rekan kerja, atau anggota keluarga yang tampak sehat untuk datang ke puskesmas. Apa respons pertamanya?'
-pubDate: '2026-08-27'
+pubDate: '2026-08-12'
 type: 'Opinion'
 tags: ['Health', 'Society']
 ---
