@@ -92,10 +92,10 @@ import Layout from '../layouts/Layout.astro';
       <div class="w-full max-w-3xl mx-auto">
         <h2 class="text-xs font-sans font-bold tracking-[0.2em] text-brand-text/50 uppercase mb-10 text-center">Things I Like</h2>
         
-        {/* Row 1: Films & Music side-by-side */}
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+        {/* Row 1: Films & Music side-by-side with divider */}
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           {/* Films */}
-          <div>
+          <div class="border-b border-brand-text/15 pb-8 md:border-b-0 md:pb-0 md:border-r md:border-brand-text/15 md:pr-8">
             <div class="flex justify-between items-end mb-4">
               <h3 class="font-serif italic text-brand-text/70 text-lg">Films</h3>
               <a href="https://letterboxd.com/ByU_7/" target="_blank" class="text-xs font-sans tracking-wider uppercase text-brand-text/40 hover:text-[#00e054] transition-colors flex items-center gap-1">
@@ -117,7 +117,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
 
           {/* Music */}
-          <div>
+          <div class="md:pl-2">
             <div class="flex justify-between items-end mb-4">
               <h3 class="font-serif italic text-brand-text/70 text-lg">Music</h3>
               <a href="https://open.spotify.com/user/314npirsxushfghesqmm5g3ceoki?si=44234286a7424ce5" target="_blank" class="text-xs font-sans tracking-wider uppercase text-brand-text/40 hover:text-[#1DB954] transition-colors flex items-center gap-1">
@@ -143,19 +143,22 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </div>
 
-        {/* Row 2: Books, Sport, Thoughts */}
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-brand-text/10">
-          <div>
+        {/* Horizontal divider line between row 1 and row 2 */}
+        <div class="w-full h-px bg-brand-text/15 my-8"></div>
+
+        {/* Row 2: Books, Sport, Thoughts with vertical dividers */}
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-0 md:divide-x md:divide-brand-text/15">
+          <div class="md:pr-6">
             <h3 class="font-serif italic text-brand-text/70 text-lg mb-2">Books</h3>
             <p class="font-sans text-brand-text/80 text-sm leading-relaxed">Norwegian Wood &middot; Cosmos &middot; Pale Blue Dot</p>
           </div>
 
-          <div>
+          <div class="md:px-6 pt-4 md:pt-0 border-t border-brand-text/10 md:border-t-0">
             <h3 class="font-serif italic text-brand-text/70 text-lg mb-2">Sport</h3>
             <p class="font-sans text-brand-text/80 text-sm leading-relaxed">Badminton &middot; Futsal &middot; Swimming</p>
           </div>
 
-          <div>
+          <div class="md:pl-6 pt-4 md:pt-0 border-t border-brand-text/10 md:border-t-0">
             <h3 class="font-serif italic text-brand-text/70 text-lg mb-2">Hours Thinking About</h3>
             <p class="font-sans text-brand-text/80 text-sm leading-relaxed">
               The universe &middot; Human nature<br/>
