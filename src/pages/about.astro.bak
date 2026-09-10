@@ -1,0 +1,231 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About | Bayu Distira">
+  <div class="py-16 max-w-4xl mx-auto px-4 md:px-0">
+    
+    {/* 1. PROFESSIONAL IDENTITY */}
+    <div class="mb-24 flex flex-col items-center md:items-start text-center md:text-left">
+      <h1 class="text-4xl md:text-6xl font-serif font-bold text-brand-text mb-2">Bayu Distira Azis</h1>
+      <h2 class="text-xl md:text-2xl font-sans text-brand-text/60 mb-6">ByU</h2>
+      
+      <p class="text-xs font-sans font-bold tracking-[0.2em] text-brand-text/50 uppercase mb-6">
+        Informatics Student &middot; Builder &middot; Writer
+      </p>
+      
+      <p class="font-sans text-brand-text/70 text-lg max-w-2xl mb-8 leading-relaxed">
+        Based in Indonesia. Interested in technology, software, science, literature, sports, people and the universe.
+      </p>
+      
+      <div class="flex flex-wrap justify-center md:justify-start gap-4">
+        <a href="#" class="px-6 py-3 bg-brand-text text-brand-bg font-sans text-xs uppercase tracking-wider font-bold rounded-sm hover:bg-brand-accent transition-colors">
+          Download CV &darr;
+        </a>
+        <a href="https://github.com/ByU-7" target="_blank" class="px-6 py-3 border border-brand-text/20 text-brand-text font-sans text-xs uppercase tracking-wider font-bold rounded-sm hover:border-brand-text transition-colors">
+          GitHub
+        </a>
+        <a href="#" class="px-6 py-3 border border-brand-text/20 text-brand-text font-sans text-xs uppercase tracking-wider font-bold rounded-sm hover:border-brand-text transition-colors">
+          LinkedIn
+        </a>
+        <a href="mailto:firqiansyahbayu@gmail.com" class="px-6 py-3 border border-brand-text/20 text-brand-text font-sans text-xs uppercase tracking-wider font-bold rounded-sm hover:border-brand-text transition-colors">
+          Email
+        </a>
+      </div>
+    </div>
+
+    {/* QUOTE */}
+    <div class="my-32 text-center">
+      <p class="text-2xl md:text-4xl font-serif italic text-brand-text/80 leading-relaxed max-w-3xl mx-auto">
+        "I like understanding things by taking things apart..."
+      </p>
+    </div>
+
+    <div class="w-full h-px bg-brand-text/10 my-24"></div>
+
+    {/* 2. A LITTLE ABOUT ME */}
+    <div class="mb-32 max-w-2xl mx-auto text-center md:text-left">
+      <h2 class="text-xs font-sans font-bold tracking-[0.2em] text-brand-text/40 uppercase mb-8">A Little About Me</h2>
+      <div class="space-y-6 font-serif text-brand-text/80 text-lg leading-relaxed">
+        <p>
+          I am an Informatics student whose curiosity often spills beyond the edges of a computer screen. While my formal education teaches me how to write efficient algorithms and structure databases, my true passion lies in understanding how things work. whether it's a piece of software, human nature, or the cosmos.
+        </p>
+        <p>
+          I build things because I want to see if I can. I write because it is the only way I can untangle the thoughts in my head. And I explore because the world is too vast to only be seen from one perspective.
+        </p>
+        <p>
+          I believe that the best software is built by people who read books, watch films, and take walks. Technology is just a tool; the stories we tell and the problems we solve with it are what actually matter.
+        </p>
+      </div>
+    </div>
+
+    <div class="w-full h-px bg-brand-text/10 my-24"></div>
+
+    {/* 3. WHAT I DO */}
+    <div class="mb-32">
+      <h2 class="text-xs font-sans font-bold tracking-[0.2em] text-brand-text/40 uppercase mb-16 text-center">What I Do</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+        <a href="/work" class="group block p-8 border border-brand-text/5 hover:border-brand-text/20 transition-colors bg-brand-bg rounded-lg">
+          <h3 class="font-serif font-bold text-2xl text-brand-text mb-4 group-hover:text-brand-accent transition-colors">BUILD</h3>
+          <p class="font-sans text-brand-text/60 mb-6">Websites, applications, and experiments.</p>
+          <span class="text-xs font-sans tracking-[0.2em] text-brand-text/40 uppercase">See Projects &rarr;</span>
+        </a>
+        <a href="/writing" class="group block p-8 border border-brand-text/5 hover:border-brand-text/20 transition-colors bg-brand-bg rounded-lg">
+          <h3 class="font-serif font-bold text-2xl text-brand-text mb-4 group-hover:text-brand-accent transition-colors">WRITE</h3>
+          <p class="font-sans text-brand-text/60 mb-6">Essays and reflections about things I find worth thinking about.</p>
+          <span class="text-xs font-sans tracking-[0.2em] text-brand-text/40 uppercase">Read Essays &rarr;</span>
+        </a>
+        <a href="/wander" class="group block p-8 border border-brand-text/5 hover:border-brand-text/20 transition-colors bg-brand-bg rounded-lg">
+          <h3 class="font-serif font-bold text-2xl text-brand-text mb-4 group-hover:text-brand-accent transition-colors">EXPLORE</h3>
+          <p class="font-sans text-brand-text/60 mb-6">Ideas, places, activities, and experiences outside my routine.</p>
+          <span class="text-xs font-sans tracking-[0.2em] text-brand-text/40 uppercase">View Log &rarr;</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="w-full h-px bg-brand-text/10 my-24"></div>
+
+    {/* 4. THINGS I LIKE */}
+    <div class="mb-32">
+      <h2 class="text-xs font-sans font-bold tracking-[0.2em] text-brand-text/40 uppercase mb-16 text-center">Things I Like</h2>
+      
+      <div class="space-y-16 max-w-3xl mx-auto">
+        {/* Films */}
+        <div>
+          <div class="flex justify-between items-end mb-6">
+            <h3 class="font-serif italic text-brand-text/60 text-xl">Films</h3>
+            <a href="//https://letterboxd.com/ByU_7/" target="_blank" class="text-xs font-sans tracking-wider uppercase text-brand-text/40 hover:text-[#00e054] transition-colors flex items-center gap-1">
+              Letterboxd <span class="text-lg leading-none">&rarr;</span>
+            </a>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { title: '12 Angry Men', img: 'https://m.media-amazon.com/images/M/MV5BYjE4NzdmOTYtYjc5Yi00YzBiLWEzNDEtNTgxZGQ2MWVkN2NiXkEyXkFqcGc@._V1_.jpg' },
+              { title: 'Hacksaw Ridge', img: 'https://m.media-amazon.com/images/M/MV5BMjQ1NjM3MTUxNV5BMl5BanBnXkFtZTgwMDc5MTY5OTE@._V1_.jpg' },
+              { title: 'Sheep Detective', img: 'https://m.media-amazon.com/images/M/MV5BNTFmZWI4YmMtNmQ0ZC00ZGQwLTk1OWEtZjAyZmIzOGY0MGFiXkEyXkFqcGc@._V1_.jpg' },
+              { title: 'Grave of the Fireflies', img: 'https://m.media-amazon.com/images/M/MV5BNTY5MmE2OGMtN2IxNC00MDY4LTkwMGEtZDUzOTYyNWE0ZTNjXkEyXkFqcGc@._V1_.jpg' }
+            ].map(film => (
+              <div class="aspect-[2/3] bg-brand-text/5 border border-brand-text/10 flex items-center justify-center text-center rounded-sm hover:ring-2 hover:ring-[#00e054]/60 transition-all cursor-pointer shadow-sm relative overflow-hidden group">
+                <img src={film.img} alt={film.title} class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-500" loading="lazy" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Music */}
+        <div class="pt-8">
+          <div class="flex justify-between items-end mb-6">
+            <h3 class="font-serif italic text-brand-text/60 text-xl">Music</h3>
+            <a href="https://open.spotify.com/user/314npirsxushfghesqmm5g3ceoki?si=44234286a7424ce5" target="_blank" class="text-xs font-sans tracking-wider uppercase text-brand-text/40 hover:text-[#1DB954] transition-colors flex items-center gap-1">
+              Spotify <span class="text-lg leading-none">&rarr;</span>
+            </a>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { name: 'Reality Club', type: 'Artist', img: 'https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/58/7f/69/587f69ed-0c73-4138-0b3a-7e595799b80b/23UMGIM09976.rgb.jpg/600x600bb.jpg' },
+              { name: 'For Revenge', type: 'Artist', img: 'https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/8c/9b/0e/8c9b0e99-748c-8c30-5f24-7f6cce483a39/38ce80c2-ea8d-44ed-b5b8-c5a20bbd57b7.jpg/600x600bb.jpg' },
+              { name: 'Taylor Swift', type: 'Artist', img: 'https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/be/e1/48/bee148d6-d16c-d8f7-0173-d6cf6d684aa1/08PNDIM00678.rgb.jpg/600x600bb.jpg' },
+              { name: 'Linkin Park', type: 'Artist', img: 'https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/13/44/05/134405bd-9e27-a678-8953-b5f724201f95/093624948988.jpg/600x600bb.jpg' }
+            ].map(artist => (
+              <div class="bg-brand-text/[0.03] p-4 rounded-lg hover:bg-brand-text/[0.06] transition-colors cursor-pointer group">
+                <div class="w-full aspect-square bg-brand-text/10 rounded-full mb-4 shadow-inner flex items-center justify-center group-hover:shadow-md transition-shadow relative overflow-hidden">
+                   <img src={artist.img} alt={artist.name} class="w-full h-full object-cover" loading="lazy" />
+                </div>
+                <h4 class="font-sans font-bold text-brand-text text-sm truncate">{artist.name}</h4>
+                <p class="font-sans text-brand-text/50 text-xs mt-1">{artist.type}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Books */}
+        <div>
+          <h3 class="font-serif italic text-brand-text/60 text-xl mb-4">Books</h3>
+          <p class="font-sans text-brand-text/80 text-lg">Norwegian Wood &middot; Cosmos &middot; Pale Blue Dot</p>
+        </div>
+
+        {/* Sport */}
+        <div>
+          <h3 class="font-serif italic text-brand-text/60 text-xl mb-4">Sport</h3>
+          <p class="font-sans text-brand-text/80 text-lg">Badminton &middot; Futsal &middot; Swimming</p>
+        </div>
+
+        {/* Thoughts */}
+        <div>
+          <h3 class="font-serif italic text-brand-text/60 text-xl mb-4">Things I Could Spend Hours Thinking About</h3>
+          <p class="font-sans text-brand-text/80 text-lg leading-relaxed">
+            The universe <br/>
+            Human nature <br/>
+            Why people do what they do <br/>
+            How things work
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full h-px bg-brand-text/10 my-24"></div>
+
+    {/* 5. CURRENTLY */}
+    <div class="mb-32 max-w-3xl mx-auto">
+      <h2 class="text-xs font-sans font-bold tracking-[0.2em] text-brand-text/40 uppercase mb-12 text-center">Currently</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-16">
+        <div>
+          <h3 class="font-serif italic text-brand-text/50 mb-2">Learning</h3>
+          <p class="font-sans text-brand-text/80 font-bold text-lg">Astro &amp; Modern Web Development</p>
+        </div>
+        <div>
+          <h3 class="font-serif italic text-brand-text/50 mb-2">Building</h3>
+          <p class="font-sans text-brand-text/80 font-bold text-lg">This digital garden</p>
+        </div>
+        <div>
+          <h3 class="font-serif italic text-brand-text/50 mb-2">Reading</h3>
+          <p class="font-sans text-brand-text/80 font-bold text-lg">Cosmos</p>
+        </div>
+        <div>
+          <h3 class="font-serif italic text-brand-text/50 mb-2">Listening</h3>
+          <p class="font-sans text-brand-text/80 font-bold text-lg">Reality Club</p>
+        </div>
+        <div class="md:col-span-2">
+          <h3 class="font-serif italic text-brand-text/50 mb-2">Wondering About</h3>
+          <p class="font-sans text-brand-text/80 font-bold text-xl leading-relaxed">
+            If we are a way for the universe to know itself, what does it think of us?
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full h-px bg-brand-text/10 my-24"></div>
+
+    {/* 6. MILESTONES */}
+    <div class="mb-32 max-w-2xl mx-auto">
+      <h2 class="text-xs font-sans font-bold tracking-[0.2em] text-brand-text/40 uppercase mb-12 text-center">A Few Milestones</h2>
+      
+      <div class="space-y-6 font-sans text-brand-text/80">
+        <div class="flex flex-col md:flex-row md:gap-8">
+          <div class="font-bold w-16 shrink-0 mb-1 md:mb-0">2026</div>
+          <div>Built this personal digital archive.</div>
+        </div>
+        <div class="flex flex-col md:flex-row md:gap-8">
+          <div class="font-bold w-16 shrink-0 mb-1 md:mb-0">2025</div>
+          <div>Began studying Informatics, learning how to take software apart.</div>
+        </div>
+        <div class="flex flex-col md:flex-row md:gap-8">
+          <div class="font-bold w-16 shrink-0 mb-1 md:mb-0">2023</div>
+          <div>Started exploring UI/UX design.</div>
+        </div>
+      </div>
+    </div>
+
+    {/* OUTRO */}
+    <div class="mt-40 mb-20 text-center">
+      <p class="font-serif text-2xl md:text-3xl text-brand-text/40 leading-relaxed italic">
+        I don't have everything figured out.<br/>
+        Still wondering.<br/>
+        Still wandering.
+      </p>
+    </div>
+
+  </div>
+</Layout>
