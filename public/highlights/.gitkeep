@@ -1,0 +1,3 @@
+# Taruh file foto Anda (.jpg, .jpeg, .png, .webp) di dalam folder ini.
+# Foto akan otomatis terdeteksi dan tampil di halaman Highlights (/wander/highlights)!
+# Jika ingin mengubah tanggal tampilan secara manual, Anda bisa mengedit file src/data/highlights.json.

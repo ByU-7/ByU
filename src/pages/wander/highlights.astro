@@ -1,57 +1,68 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+import customHighlights from '../../data/highlights.json';
 
-// Format foto minimalis: hanya butuh URL foto dan tanggal/waktu
-const photos = [
-  {
-    img: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80',
-    date: '10 Sep 2026'
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?auto=format&fit=crop&w=1200&q=80',
-    date: '02 Sep 2026'
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1477959858617-67f30bc75b82?auto=format&fit=crop&w=1200&q=80',
-    date: '28 Aug 2026'
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1200&q=80',
-    date: '19 Aug 2026'
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
-    date: '11 Aug 2026'
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
-    date: '03 Aug 2026'
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?auto=format&fit=crop&w=1200&q=80',
-    date: '24 Jul 2026'
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1200&q=80',
-    date: '15 Jul 2026'
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=1200&q=80',
-    date: '02 Jul 2026'
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80',
-    date: '21 Jun 2026'
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=1200&q=80',
-    date: '08 Jun 2026'
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80',
-    date: '27 May 2026'
+interface PhotoItem {
+  img: string;
+  date: string;
+  timestamp: number;
+}
+
+const highlightsDir = path.resolve('./public/highlights');
+const localPhotos: PhotoItem[] = [];
+
+if (fs.existsSync(highlightsDir)) {
+  const allowedExts = ['.jpg', '.jpeg', '.png', '.webp', '.gif', '.avif'];
+  const files = fs.readdirSync(highlightsDir);
+
+  for (const file of files) {
+    const ext = path.extname(file).toLowerCase();
+    if (!allowedExts.includes(ext)) continue;
+
+    const fullPath = path.join(highlightsDir, file);
+    const stats = fs.statSync(fullPath);
+
+    // Cek apakah ada tanggal manual/kustom di highlights.json
+    const customEntry = customHighlights.find(
+      (item) => item.file === file || item.file === `/highlights/${file}`
+    );
+
+    if (customEntry) {
+      localPhotos.push({
+        img: `/highlights/${file}`,
+        date: customEntry.date,
+        timestamp: new Date(customEntry.date).getTime() || stats.mtimeMs,
+      });
+    } else {
+      // Otomatis: format tanggal dari waktu modifikasi file
+      const formattedDate = stats.mtime.toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+      });
+
+      localPhotos.push({
+        img: `/highlights/${file}`,
+        date: formattedDate,
+        timestamp: stats.mtimeMs,
+      });
+    }
   }
-];
+}
+
+// Foto eksternal/URL dari highlights.json
+const externalPhotos: PhotoItem[] = customHighlights
+  .filter((item) => item.file.startsWith('http://') || item.file.startsWith('https://'))
+  .map((item) => ({
+    img: item.file,
+    date: item.date,
+    timestamp: new Date(item.date).getTime() || 0,
+  }));
+
+// Gabungkan semua foto (lokal yang otomatis & kustom) dan urutkan dari yang terbaru
+const photos = [...localPhotos, ...externalPhotos].sort((a, b) => b.timestamp - a.timestamp);
 ---
 
 <Layout title="Highlights | Wander | Bayu Distira">
@@ -91,6 +102,13 @@ const photos = [
           </span>
         </div>
       ))}
+
+      {photos.length === 0 && (
+        <div class="col-span-full text-center py-20">
+          <p class="font-serif italic text-brand-text/50 text-lg">Belum ada foto yang ditambahkan.</p>
+          <p class="font-sans text-brand-text/40 text-xs mt-2">Taruh file foto di folder public/highlights/ untuk menambahkannya secara otomatis.</p>
+        </div>
+      )}
     </div>
 
     {/* LIGHTBOX MODAL */}
