@@ -1,159 +1,104 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const albums = [
-  { id: 'all', name: 'All Frames', count: 8 },
-  { id: 'skies', name: 'Skies & Stars', count: 3 },
-  { id: 'streets', name: 'Streets & Walks', count: 3 },
-  { id: 'still', name: 'Quiet Corners', count: 2 },
-];
-
+// Format foto minimalis: hanya butuh URL foto dan tanggal/waktu
 const photos = [
   {
-    title: 'The Blue Hour Solitude',
-    category: 'skies',
-    location: 'South Sulawesi, Indonesia',
-    date: 'Aug 2026',
-    caption: 'When the sun sinks beneath the horizon, the sky puts on its deepest silence.',
     img: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80',
-    aspect: 'aspect-[4/3]'
+    date: '10 Sep 2026'
   },
   {
-    title: 'Gazing into the Cosmic Void',
-    category: 'skies',
-    location: 'Night Walk Observance',
-    date: 'Aug 2026',
-    caption: 'Staring upward reminds us that we are perched on a tiny pale speck.',
     img: 'https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?auto=format&fit=crop&w=1200&q=80',
-    aspect: 'aspect-[3/4]'
+    date: '02 Sep 2026'
   },
   {
-    title: 'Intersection of Morning Light',
-    category: 'streets',
-    location: 'Palopo City',
-    date: 'Jul 2026',
-    caption: 'Morning cast long golden shadows against the asphalt.',
     img: 'https://images.unsplash.com/photo-1477959858617-67f30bc75b82?auto=format&fit=crop&w=1200&q=80',
-    aspect: 'aspect-[4/5]'
+    date: '28 Aug 2026'
   },
   {
-    title: 'A Desk, A Book, and Unhurried Hours',
-    category: 'still',
-    location: 'Personal Reading Corner',
-    date: 'Jul 2026',
-    caption: 'Pages of Sagan and Murakami, cooling black coffee, and unhurried thoughts.',
     img: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1200&q=80',
-    aspect: 'aspect-[1/1]'
+    date: '19 Aug 2026'
   },
   {
-    title: 'The Edge of the Sea at Dawn',
-    category: 'skies',
-    location: 'Coastal Road',
-    date: 'Jun 2026',
-    caption: 'Tides pulling gently backward before the city wakes.',
     img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
-    aspect: 'aspect-[16/9]'
+    date: '11 Aug 2026'
   },
   {
-    title: 'Alleyways in Monochrome',
-    category: 'streets',
-    location: 'Urban Detour',
-    date: 'May 2026',
-    caption: 'Textures in concrete and silence in crowded places.',
     img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
-    aspect: 'aspect-[3/4]'
+    date: '03 Aug 2026'
   },
   {
-    title: 'Rain Against the Glass',
-    category: 'still',
-    location: 'Transit Station',
-    date: 'Apr 2026',
-    caption: 'Looking through the raindrops while waiting for the next departure.',
     img: 'https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?auto=format&fit=crop&w=1200&q=80',
-    aspect: 'aspect-[4/3]'
+    date: '24 Jul 2026'
   },
   {
-    title: 'The Long Road Ahead',
-    category: 'streets',
-    location: 'Highland Detour',
-    date: 'Mar 2026',
-    caption: 'A curve in the mountain pass where cell signals fade out.',
     img: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1200&q=80',
-    aspect: 'aspect-[16/10]'
+    date: '15 Jul 2026'
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=1200&q=80',
+    date: '02 Jul 2026'
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80',
+    date: '21 Jun 2026'
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=1200&q=80',
+    date: '08 Jun 2026'
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80',
+    date: '27 May 2026'
   }
 ];
 ---
 
-<Layout title="Photo Highlights | Wander | Bayu Distira">
-  <div class="py-16 max-w-5xl mx-auto px-4 md:px-0">
+<Layout title="Highlights | Wander | Bayu Distira">
+  <div class="py-12 max-w-5xl mx-auto px-4 md:px-0">
     
     {/* HEADER */}
-    <div class="mb-16 text-center border-b border-brand-text/10 pb-16">
-      <div class="text-xs font-sans tracking-[0.25em] uppercase text-brand-text/40 mb-3">
+    <div class="mb-12 text-center border-b border-brand-text/10 pb-10">
+      <div class="text-[10px] font-sans tracking-[0.25em] uppercase text-brand-text/40 mb-2">
         <a href="/wander" class="hover:text-brand-accent transition-colors">&larr; Wander</a> &middot; Highlights
       </div>
-      <h1 class="text-4xl md:text-5xl font-serif font-bold text-brand-text mb-6 tracking-wide">PHOTO HIGHLIGHTS</h1>
-      <p class="font-sans text-brand-text/60 text-lg max-w-xl mx-auto leading-relaxed">
-        Visual fragments, glimpses of light, quiet corners, and frames captured on wandering walks.
+      <h1 class="text-3xl md:text-4xl font-serif font-bold text-brand-text mb-3 tracking-wide">HIGHLIGHTS</h1>
+      <p class="font-sans text-brand-text/50 text-sm">
+        Arsip foto acak &amp; momen yang terekam.
       </p>
-
-      {/* FILTER PILLS */}
-      <div class="mt-10 flex flex-wrap justify-center gap-3">
-        {albums.map((album) => (
-          <button 
-            class={`photo-filter px-4 py-2 rounded-full border text-xs font-sans uppercase tracking-widest transition-all cursor-pointer ${
-              album.id === 'all' 
-                ? 'bg-brand-text text-brand-bg border-brand-text font-bold active-filter' 
-                : 'border-brand-text/15 text-brand-text/60 hover:border-brand-text/40 hover:text-brand-text'
-            }`}
-            data-filter={album.id}
-          >
-            {album.name}
-          </button>
-        ))}
-      </div>
     </div>
 
-    {/* PHOTO GALLERY GRID */}
-    <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6" id="photo-container">
-      {photos.map((photo) => (
-        <figure 
-          class="photo-card break-inside-avoid bg-brand-bg border border-brand-text/10 rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-brand-text/25 transition-all duration-300 group"
-          data-category={photo.category}
-        >
-          <div class="relative overflow-hidden bg-brand-text/5">
+    {/* COMPACT PHOTO GRID */}
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-4">
+      {photos.map((photo, index) => (
+        <div class="group flex flex-col cursor-pointer photo-item" data-index={index} data-img={photo.img} data-date={photo.date}>
+          <div class="relative w-full aspect-square bg-brand-text/5 rounded-lg overflow-hidden border border-brand-text/10 group-hover:border-brand-text/30 transition-all duration-300">
             <img 
               src={photo.img} 
-              alt={photo.title} 
-              class="w-full h-auto object-cover grayscale-[15%] group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-500" 
+              alt={`Photo ${photo.date}`} 
+              class="w-full h-full object-cover grayscale-[10%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" 
               loading="lazy"
             />
-          </div>
-          <figcaption class="p-5">
-            <div class="flex items-center justify-between text-[10px] font-sans tracking-[0.2em] uppercase text-brand-text/40 mb-2">
-              <span>{photo.location}</span>
-              <span>{photo.date}</span>
+            {/* Subtle overlay with date on hover */}
+            <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-2.5">
+              <span class="text-[10px] font-sans tracking-widest uppercase text-white font-medium drop-shadow-sm">
+                {photo.date}
+              </span>
             </div>
-            <h2 class="font-serif font-bold text-lg text-brand-text group-hover:text-brand-accent transition-colors mb-1.5">
-              {photo.title}
-            </h2>
-            <p class="font-sans text-brand-text/70 text-xs leading-relaxed">
-              {photo.caption}
-            </p>
-          </figcaption>
-        </figure>
+          </div>
+          <span class="text-[10px] font-sans tracking-widest uppercase text-brand-text/40 text-center mt-1.5 group-hover:text-brand-text/70 transition-colors">
+            {photo.date}
+          </span>
+        </div>
       ))}
     </div>
 
-    {/* OUTRO NOTE */}
-    <div class="mt-28 text-center border-t border-brand-text/10 pt-16">
-      <p class="font-serif italic text-brand-text/40 text-lg">
-        "To wander is to look closely at what others walk past."
-      </p>
-      <div class="mt-8">
-        <a href="/wander" class="text-xs font-sans tracking-widest uppercase text-brand-text/50 hover:text-brand-accent transition-colors">
-          &larr; Back to Wander Stories
-        </a>
+    {/* LIGHTBOX MODAL */}
+    <div id="lightbox" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-center justify-center p-4">
+      <button id="lightbox-close" class="absolute top-6 right-6 text-white/70 hover:text-white text-3xl font-sans cursor-pointer transition-colors p-2" aria-label="Close modal">&times;</button>
+      <div class="max-w-4xl max-h-[85vh] flex flex-col items-center">
+        <img id="lightbox-img" src="" alt="Full photo" class="max-w-full max-h-[78vh] object-contain rounded-lg shadow-2xl" />
+        <p id="lightbox-date" class="text-xs font-sans tracking-widest uppercase text-white/70 mt-3"></p>
       </div>
     </div>
 
@@ -162,32 +107,46 @@ const photos = [
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.photo-filter');
-    const cards = document.querySelectorAll('.photo-card');
+    const items = document.querySelectorAll('.photo-item');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+    const lightboxDate = document.getElementById('lightbox-date');
+    const closeBtn = document.getElementById('lightbox-close');
 
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        // Reset button states
-        buttons.forEach(b => {
-          b.classList.remove('bg-brand-text', 'text-brand-bg', 'font-bold', 'active-filter');
-          b.classList.add('border-brand-text/15', 'text-brand-text/60');
-        });
+    if (!lightbox || !lightboxImg || !lightboxDate) return;
 
-        // Set active button
-        btn.classList.add('bg-brand-text', 'text-brand-bg', 'font-bold', 'active-filter');
-        btn.classList.remove('border-brand-text/15', 'text-brand-text/60');
-
-        const filter = btn.getAttribute('data-filter');
-
-        cards.forEach(card => {
-          const cat = card.getAttribute('data-category');
-          if (filter === 'all' || cat === filter) {
-            (card as HTMLElement).style.display = '';
-          } else {
-            (card as HTMLElement).style.display = 'none';
-          }
-        });
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        const img = item.getAttribute('data-img');
+        const date = item.getAttribute('data-date');
+        if (img) {
+          lightboxImg.src = img;
+          lightboxDate.textContent = date || '';
+          lightbox.classList.remove('hidden');
+          lightbox.classList.add('flex');
+          document.body.style.overflow = 'hidden';
+        }
       });
+    });
+
+    const closeLightbox = () => {
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
+      lightboxImg.src = '';
+      document.body.style.overflow = '';
+    };
+
+    closeBtn?.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+        closeLightbox();
+      }
     });
   });
 </script>
