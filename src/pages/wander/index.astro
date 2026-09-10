@@ -12,9 +12,20 @@ const curiosities = wander.filter(p => p.id !== featured.id && p.data.type === '
 
 <Layout title="Wander | Bayu Distira">
   <div class="py-16 max-w-4xl mx-auto px-4 md:px-0">
-    <div class="mb-24 text-center border-b border-brand-text/10 pb-16">
+    <div class="mb-20 text-center border-b border-brand-text/10 pb-16">
       <h1 class="text-4xl md:text-5xl font-serif font-bold text-brand-text mb-6 tracking-wide">WANDER</h1>
-      <p class="font-sans text-brand-text/60 text-lg max-w-xl mx-auto">A record of things I explored, tried, noticed, and stumbled upon.</p>
+      <p class="font-sans text-brand-text/60 text-lg max-w-xl mx-auto mb-8">A record of things I explored, tried, noticed, and stumbled upon.</p>
+      
+      {/* PHOTO HIGHLIGHTS SUBPAGE BUTTON */}
+      <div class="flex justify-center">
+        <a 
+          href="/wander/highlights" 
+          class="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-[#e6e2d6] border border-brand-text/15 hover:border-brand-accent hover:bg-brand-text/5 text-xs font-sans uppercase tracking-widest text-brand-text/80 hover:text-brand-accent transition-all duration-300 shadow-sm group"
+        >
+          <span class="w-2 h-2 rounded-full bg-brand-accent"></span>
+          <span>View Photo Highlights &rarr;</span>
+        </a>
+      </div>
     </div>
 
     {/* FEATURED */}

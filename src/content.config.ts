@@ -18,11 +18,13 @@ const writing = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/writing" }),
   schema: z.object({
     title: z.string(),
-    description: z.string(),
+    description: z.string().optional(),
     pubDate: z.coerce.date(),
-    type: z.string().default('Essay'), // Essay, Opinion, Reflection, Idea
+    type: z.string().default('Essay'), // Essay, Opinion, Reflection, Prose, Note
     tags: z.array(z.string()).optional(),
     isFeatured: z.boolean().optional(),
+    author: z.string().optional(),
+    source: z.string().optional(),
   }),
 });
 

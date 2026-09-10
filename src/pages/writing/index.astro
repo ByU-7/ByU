@@ -16,11 +16,10 @@ const allPosts = writing.filter(p => p.id !== featuredPost?.id);
       <p class="font-sans text-brand-text/60 text-lg">Essays, opinions, reflections, and questions worth sitting with.</p>
       
       <div class="mt-12 flex flex-wrap justify-center gap-6 text-sm font-sans tracking-widest uppercase text-brand-text/40" id="filter-container">
-        <button class="filter-btn text-brand-text hover:text-brand-text cursor-pointer transition-colors" data-filter="All">All</button>
-        <button class="filter-btn hover:text-brand-text cursor-pointer transition-colors" data-filter="Essay">Essays</button>
-        <button class="filter-btn hover:text-brand-text cursor-pointer transition-colors" data-filter="Opinion">Opinions</button>
-        <button class="filter-btn hover:text-brand-text cursor-pointer transition-colors" data-filter="Reflection">Reflections</button>
-        <button class="filter-btn hover:text-brand-text cursor-pointer transition-colors" data-filter="Idea">Ideas</button>
+        <a href="/writing" class="text-brand-text font-bold border-b border-brand-text pb-1">All</a>
+        <a href="/writing/essays" class="hover:text-brand-text transition-colors">Essays</a>
+        <a href="/writing/prose" class="hover:text-brand-text transition-colors">Prose</a>
+        <a href="/writing/notes" class="hover:text-brand-text transition-colors">Notes</a>
       </div>
     </div>
     

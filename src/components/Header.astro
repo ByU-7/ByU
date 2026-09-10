@@ -6,7 +6,35 @@
     <nav class="w-full md:w-auto">
       <ul class="flex flex-wrap justify-center md:justify-end gap-x-4 md:gap-x-6 gap-y-2 text-sm font-sans tracking-wide font-medium text-brand-text/70">
         <li><a href="/work" class="hover:text-brand-accent transition-colors">Work</a></li>
-        <li><a href="/writing" class="hover:text-brand-accent transition-colors">Writing</a></li>
+        
+        {/* Writing with Dropdown */}
+        <li class="relative group">
+          <a href="/writing" class="flex items-center gap-1 hover:text-brand-accent transition-colors py-1">
+            <span>Writing</span>
+            <svg class="w-3 h-3 text-brand-text/40 group-hover:text-brand-accent transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </a>
+          
+          {/* Dropdown Menu */}
+          <div class="absolute left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <div class="bg-brand-bg/95 backdrop-blur-md border border-brand-text/10 rounded-lg shadow-xl py-2 px-1 min-w-[150px] flex flex-col gap-1">
+              <a href="/writing/essays" class="px-3 py-1.5 text-xs text-brand-text/80 hover:text-brand-accent hover:bg-brand-text/5 rounded-md transition-colors flex items-center justify-between">
+                <span>Essays</span>
+                <span class="text-[10px] text-brand-text/30 uppercase font-sans">Articles</span>
+              </a>
+              <a href="/writing/prose" class="px-3 py-1.5 text-xs text-brand-text/80 hover:text-brand-accent hover:bg-brand-text/5 rounded-md transition-colors flex items-center justify-between">
+                <span>Prose</span>
+                <span class="text-[10px] text-brand-text/30 uppercase font-sans">Musings</span>
+              </a>
+              <a href="/writing/notes" class="px-3 py-1.5 text-xs text-brand-text/80 hover:text-brand-accent hover:bg-brand-text/5 rounded-md transition-colors flex items-center justify-between">
+                <span>Notes</span>
+                <span class="text-[10px] text-brand-text/30 uppercase font-sans">Quotes</span>
+              </a>
+            </div>
+          </div>
+        </li>
+
         <li><a href="/wander" class="hover:text-brand-accent transition-colors">Wander</a></li>
         <li><a href="/notes" class="hover:text-brand-accent transition-colors">Wonder</a></li>
         <li><a href="/about" class="hover:text-brand-accent transition-colors">About</a></li>

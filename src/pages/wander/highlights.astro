@@ -1,0 +1,193 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const albums = [
+  { id: 'all', name: 'All Frames', count: 8 },
+  { id: 'skies', name: 'Skies & Stars', count: 3 },
+  { id: 'streets', name: 'Streets & Walks', count: 3 },
+  { id: 'still', name: 'Quiet Corners', count: 2 },
+];
+
+const photos = [
+  {
+    title: 'The Blue Hour Solitude',
+    category: 'skies',
+    location: 'South Sulawesi, Indonesia',
+    date: 'Aug 2026',
+    caption: 'When the sun sinks beneath the horizon, the sky puts on its deepest silence.',
+    img: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80',
+    aspect: 'aspect-[4/3]'
+  },
+  {
+    title: 'Gazing into the Cosmic Void',
+    category: 'skies',
+    location: 'Night Walk Observance',
+    date: 'Aug 2026',
+    caption: 'Staring upward reminds us that we are perched on a tiny pale speck.',
+    img: 'https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?auto=format&fit=crop&w=1200&q=80',
+    aspect: 'aspect-[3/4]'
+  },
+  {
+    title: 'Intersection of Morning Light',
+    category: 'streets',
+    location: 'Palopo City',
+    date: 'Jul 2026',
+    caption: 'Morning cast long golden shadows against the asphalt.',
+    img: 'https://images.unsplash.com/photo-1477959858617-67f30bc75b82?auto=format&fit=crop&w=1200&q=80',
+    aspect: 'aspect-[4/5]'
+  },
+  {
+    title: 'A Desk, A Book, and Unhurried Hours',
+    category: 'still',
+    location: 'Personal Reading Corner',
+    date: 'Jul 2026',
+    caption: 'Pages of Sagan and Murakami, cooling black coffee, and unhurried thoughts.',
+    img: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1200&q=80',
+    aspect: 'aspect-[1/1]'
+  },
+  {
+    title: 'The Edge of the Sea at Dawn',
+    category: 'skies',
+    location: 'Coastal Road',
+    date: 'Jun 2026',
+    caption: 'Tides pulling gently backward before the city wakes.',
+    img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
+    aspect: 'aspect-[16/9]'
+  },
+  {
+    title: 'Alleyways in Monochrome',
+    category: 'streets',
+    location: 'Urban Detour',
+    date: 'May 2026',
+    caption: 'Textures in concrete and silence in crowded places.',
+    img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
+    aspect: 'aspect-[3/4]'
+  },
+  {
+    title: 'Rain Against the Glass',
+    category: 'still',
+    location: 'Transit Station',
+    date: 'Apr 2026',
+    caption: 'Looking through the raindrops while waiting for the next departure.',
+    img: 'https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?auto=format&fit=crop&w=1200&q=80',
+    aspect: 'aspect-[4/3]'
+  },
+  {
+    title: 'The Long Road Ahead',
+    category: 'streets',
+    location: 'Highland Detour',
+    date: 'Mar 2026',
+    caption: 'A curve in the mountain pass where cell signals fade out.',
+    img: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1200&q=80',
+    aspect: 'aspect-[16/10]'
+  }
+];
+---
+
+<Layout title="Photo Highlights | Wander | Bayu Distira">
+  <div class="py-16 max-w-5xl mx-auto px-4 md:px-0">
+    
+    {/* HEADER */}
+    <div class="mb-16 text-center border-b border-brand-text/10 pb-16">
+      <div class="text-xs font-sans tracking-[0.25em] uppercase text-brand-text/40 mb-3">
+        <a href="/wander" class="hover:text-brand-accent transition-colors">&larr; Wander</a> &middot; Highlights
+      </div>
+      <h1 class="text-4xl md:text-5xl font-serif font-bold text-brand-text mb-6 tracking-wide">PHOTO HIGHLIGHTS</h1>
+      <p class="font-sans text-brand-text/60 text-lg max-w-xl mx-auto leading-relaxed">
+        Visual fragments, glimpses of light, quiet corners, and frames captured on wandering walks.
+      </p>
+
+      {/* FILTER PILLS */}
+      <div class="mt-10 flex flex-wrap justify-center gap-3">
+        {albums.map((album) => (
+          <button 
+            class={`photo-filter px-4 py-2 rounded-full border text-xs font-sans uppercase tracking-widest transition-all cursor-pointer ${
+              album.id === 'all' 
+                ? 'bg-brand-text text-brand-bg border-brand-text font-bold active-filter' 
+                : 'border-brand-text/15 text-brand-text/60 hover:border-brand-text/40 hover:text-brand-text'
+            }`}
+            data-filter={album.id}
+          >
+            {album.name}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    {/* PHOTO GALLERY GRID */}
+    <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6" id="photo-container">
+      {photos.map((photo) => (
+        <figure 
+          class="photo-card break-inside-avoid bg-brand-bg border border-brand-text/10 rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-brand-text/25 transition-all duration-300 group"
+          data-category={photo.category}
+        >
+          <div class="relative overflow-hidden bg-brand-text/5">
+            <img 
+              src={photo.img} 
+              alt={photo.title} 
+              class="w-full h-auto object-cover grayscale-[15%] group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-500" 
+              loading="lazy"
+            />
+          </div>
+          <figcaption class="p-5">
+            <div class="flex items-center justify-between text-[10px] font-sans tracking-[0.2em] uppercase text-brand-text/40 mb-2">
+              <span>{photo.location}</span>
+              <span>{photo.date}</span>
+            </div>
+            <h2 class="font-serif font-bold text-lg text-brand-text group-hover:text-brand-accent transition-colors mb-1.5">
+              {photo.title}
+            </h2>
+            <p class="font-sans text-brand-text/70 text-xs leading-relaxed">
+              {photo.caption}
+            </p>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+
+    {/* OUTRO NOTE */}
+    <div class="mt-28 text-center border-t border-brand-text/10 pt-16">
+      <p class="font-serif italic text-brand-text/40 text-lg">
+        "To wander is to look closely at what others walk past."
+      </p>
+      <div class="mt-8">
+        <a href="/wander" class="text-xs font-sans tracking-widest uppercase text-brand-text/50 hover:text-brand-accent transition-colors">
+          &larr; Back to Wander Stories
+        </a>
+      </div>
+    </div>
+
+  </div>
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.photo-filter');
+    const cards = document.querySelectorAll('.photo-card');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Reset button states
+        buttons.forEach(b => {
+          b.classList.remove('bg-brand-text', 'text-brand-bg', 'font-bold', 'active-filter');
+          b.classList.add('border-brand-text/15', 'text-brand-text/60');
+        });
+
+        // Set active button
+        btn.classList.add('bg-brand-text', 'text-brand-bg', 'font-bold', 'active-filter');
+        btn.classList.remove('border-brand-text/15', 'text-brand-text/60');
+
+        const filter = btn.getAttribute('data-filter');
+
+        cards.forEach(card => {
+          const cat = card.getAttribute('data-category');
+          if (filter === 'all' || cat === filter) {
+            (card as HTMLElement).style.display = '';
+          } else {
+            (card as HTMLElement).style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>

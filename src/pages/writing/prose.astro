@@ -1,0 +1,67 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allWriting = await getCollection('writing');
+const proseList = allWriting.filter(p => {
+  const t = (p.data.type || '').toLowerCase();
+  return t === 'prose' || t === 'reflection' || t === 'idea' || t === 'musings';
+});
+
+proseList.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<Layout title="Prose & Musings | Bayu Distira">
+  <div class="py-16 max-w-4xl mx-auto px-4 md:px-0">
+    <div class="mb-16 text-center border-b border-brand-text/10 pb-16">
+      <div class="text-xs font-sans tracking-[0.25em] uppercase text-brand-text/40 mb-3">
+        <a href="/writing" class="hover:text-brand-accent transition-colors">Writing</a> &middot; Prose
+      </div>
+      <h1 class="text-4xl md:text-5xl font-serif font-bold text-brand-text mb-6">PROSE &amp; MUSINGS</h1>
+      <p class="font-sans text-brand-text/60 text-lg max-w-xl mx-auto">Lyrical words, quiet feelings, and thoughts shaped into sentences of contemplation.</p>
+      
+      {/* Subpage Switcher */}
+      <div class="mt-12 flex flex-wrap justify-center gap-6 text-sm font-sans tracking-widest uppercase text-brand-text/40">
+        <a href="/writing" class="hover:text-brand-text transition-colors">All</a>
+        <a href="/writing/essays" class="hover:text-brand-text transition-colors">Essays</a>
+        <a href="/writing/prose" class="text-brand-text font-bold border-b border-brand-text pb-1">Prose</a>
+        <a href="/writing/notes" class="hover:text-brand-text transition-colors">Notes</a>
+      </div>
+    </div>
+
+    {/* PROSE FEED / CARDS */}
+    <div class="max-w-2xl mx-auto space-y-16">
+      {proseList.map((item) => (
+        <article class="group py-8 border-b border-brand-text/10 last:border-b-0">
+          <div class="flex items-center gap-3 text-xs font-sans tracking-[0.2em] uppercase text-brand-text/40 mb-4">
+            <span class="text-brand-accent font-bold">{item.data.type}</span>
+            <span>&middot;</span>
+            <span>{new Date(item.data.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+          </div>
+
+          <a href={`/writing/${item.id}/`} class="block group">
+            <h2 class="text-2xl md:text-3xl font-serif font-bold text-brand-text mb-4 group-hover:text-brand-accent transition-colors leading-snug">
+              {item.data.title}
+            </h2>
+          </a>
+
+          <p class="font-serif italic text-brand-text/70 text-lg leading-relaxed mb-6">
+            "{item.data.description || item.body.slice(0, 150)}..."
+          </p>
+
+          <a href={`/writing/${item.id}/`} class="inline-flex items-center gap-2 text-xs font-sans tracking-widest uppercase text-brand-text/50 hover:text-brand-accent transition-colors">
+            <span>Read Piece</span>
+            <span>&rarr;</span>
+          </a>
+        </article>
+      ))}
+
+      {proseList.length === 0 && (
+        <div class="text-center py-24">
+          <p class="font-serif italic text-brand-text/50 text-xl mb-2">No prose pieces published yet.</p>
+          <p class="font-sans text-brand-text/40 text-sm">Words are slowly finding their shape.</p>
+        </div>
+      )}
+    </div>
+  </div>
+</Layout>

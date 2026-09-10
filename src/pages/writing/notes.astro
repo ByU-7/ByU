@@ -1,0 +1,112 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allWriting = await getCollection('writing');
+const noteItems = allWriting.filter(p => {
+  const t = (p.data.type || '').toLowerCase();
+  return t === 'note' || t === 'quote';
+});
+
+noteItems.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// Curated starter quotes if collection items are still being populated
+const defaultQuotes = [
+  {
+    quote: "The cosmos is within us. We are made of star-stuff. We are a way for the cosmos to know itself.",
+    author: "Carl Sagan",
+    source: "Cosmos",
+    date: "Aug 2026",
+    tag: "Universe"
+  },
+  {
+    quote: "Look again at that dot. That's here. That's home. That's us. On it everyone you love, everyone you know, everyone you ever heard of, every human being who ever was, lived out their lives.",
+    author: "Carl Sagan",
+    source: "Pale Blue Dot",
+    date: "Aug 2026",
+    tag: "Perspective"
+  },
+  {
+    quote: "If you only read the books that everyone else is reading, you can only think what everyone else is thinking.",
+    author: "Haruki Murakami",
+    source: "Norwegian Wood",
+    date: "Jul 2026",
+    tag: "Reading"
+  },
+  {
+    quote: "I like understanding things by taking things apart.",
+    author: "ByU",
+    source: "Personal Notebook",
+    date: "2026",
+    tag: "Curiosity"
+  }
+];
+---
+
+<Layout title="Notes & Quotes | Bayu Distira">
+  <div class="py-16 max-w-4xl mx-auto px-4 md:px-0">
+    <div class="mb-16 text-center border-b border-brand-text/10 pb-16">
+      <div class="text-xs font-sans tracking-[0.25em] uppercase text-brand-text/40 mb-3">
+        <a href="/writing" class="hover:text-brand-accent transition-colors">Writing</a> &middot; Notes
+      </div>
+      <h1 class="text-4xl md:text-5xl font-serif font-bold text-brand-text mb-6">NOTES &amp; QUOTES</h1>
+      <p class="font-sans text-brand-text/60 text-lg max-w-xl mx-auto">A digital commonplace book—striking sentences, quotes, and lines that stopped me in my tracks.</p>
+      
+      {/* Subpage Switcher */}
+      <div class="mt-12 flex flex-wrap justify-center gap-6 text-sm font-sans tracking-widest uppercase text-brand-text/40">
+        <a href="/writing" class="hover:text-brand-text transition-colors">All</a>
+        <a href="/writing/essays" class="hover:text-brand-text transition-colors">Essays</a>
+        <a href="/writing/prose" class="hover:text-brand-text transition-colors">Prose</a>
+        <a href="/writing/notes" class="text-brand-text font-bold border-b border-brand-text pb-1">Notes</a>
+      </div>
+    </div>
+
+    {/* QUOTES GRID / STREAM */}
+    <div class="max-w-2xl mx-auto space-y-12">
+      {/* Dynamic notes from collection if available */}
+      {noteItems.map((note) => (
+        <article class="p-8 bg-[#e6e2d6]/50 border border-brand-text/10 rounded-xl relative hover:border-brand-text/20 transition-all">
+          <span class="text-4xl font-serif text-brand-accent/40 absolute top-4 left-4 leading-none select-none">&ldquo;</span>
+          <div class="relative z-10 pl-6">
+            <p class="font-serif italic text-brand-text text-xl md:text-2xl leading-relaxed mb-6">
+              {note.data.description || note.data.title}
+            </p>
+            <div class="flex flex-wrap items-center justify-between gap-4 text-xs font-sans tracking-wider text-brand-text/50 uppercase border-t border-brand-text/10 pt-4">
+              <div>
+                <span class="font-bold text-brand-text/70">{note.data.author || 'Unknown'}</span>
+                {note.data.source && (
+                  <span> &middot; <em>{note.data.source}</em></span>
+                )}
+              </div>
+              <span>
+                {new Date(note.data.pubDate).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+              </span>
+            </div>
+          </div>
+        </article>
+      ))}
+
+      {/* Default / Curated quotes */}
+      {defaultQuotes.map((item) => (
+        <article class="p-8 bg-[#e6e2d6]/40 border border-brand-text/10 rounded-xl relative hover:border-brand-text/20 hover:bg-[#e6e2d6]/60 transition-all">
+          <span class="text-4xl font-serif text-brand-accent/30 absolute top-4 left-4 leading-none select-none">&ldquo;</span>
+          <div class="relative z-10 pl-6">
+            <p class="font-serif italic text-brand-text/90 text-xl md:text-2xl leading-relaxed mb-6">
+              {item.quote}
+            </p>
+            <div class="flex flex-wrap items-center justify-between gap-4 text-xs font-sans tracking-wider text-brand-text/50 uppercase border-t border-brand-text/10 pt-4">
+              <div>
+                <span class="font-bold text-brand-text/80">{item.author}</span>
+                <span> &middot; <em>{item.source}</em></span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="px-2 py-0.5 bg-brand-text/5 rounded text-[10px] text-brand-accent font-bold">{item.tag}</span>
+                <span>{item.date}</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</Layout>
